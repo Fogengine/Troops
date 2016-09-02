@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4d1d6c10-8fcb-47fb-a879-092701383daa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\cameraclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\d3dclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\graphicsclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\inputclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\modelclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\systemclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\textureclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\textureshaderclass.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\cameraclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\d3dclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\graphicsclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\inputclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\modelclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\systemclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\textureclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\textureshaderclass.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
