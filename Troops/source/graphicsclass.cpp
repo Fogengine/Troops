@@ -144,7 +144,7 @@ bool GraphicsClass::Render()
 {
 	XMMATRIX worldMatrix, viewMatrix, projectionMatrix;
 	bool result;
-
+	static float xRotate = 0;
 
 	// Clear the buffers to begin the scene.
 	m_Direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
@@ -156,6 +156,10 @@ bool GraphicsClass::Render()
 	m_Direct3D->GetWorldMatrix(worldMatrix);
 	m_Camera->GetViewMatrix(viewMatrix);
 	m_Direct3D->GetProjectionMatrix(projectionMatrix);
+
+	worldMatrix*=XMMatrixRotationY(xRotate);
+	worldMatrix *= XMMatrixRotationX(xRotate);
+	xRotate += 0.01f;
 
 	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 	m_Model->Render(m_Direct3D->GetDeviceContext());
