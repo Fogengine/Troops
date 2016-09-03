@@ -4,6 +4,9 @@
     <Filter Include="Source">
       <UniqueIdentifier>{4d1d6c10-8fcb-47fb-a879-092701383daa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{12711452-1a98-4641-91de-e106f0589064}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\cameraclass.cpp">
@@ -33,6 +36,15 @@
     <ClCompile Include="source\textureshaderclass.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="source\core\math\TMatrix.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\core\math\TVector3.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\core\math\TVector2.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\cameraclass.h">
@@ -58,6 +70,15 @@
     </ClInclude>
     <ClInclude Include="source\textureshaderclass.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\core\math\TMatrix.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\core\math\TVector3.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\core\math\TVector2.h">
+      <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

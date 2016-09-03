@@ -17,6 +17,8 @@ using namespace DirectX;
 // MY CLASS INCLUDES //
 ///////////////////////
 #include "textureclass.h"
+#include "../source/core/math/TVector3.h"
+#include "../source/core/math/TVector2.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -27,8 +29,11 @@ class ModelClass
 private:
 	struct VertexType
 	{
-		XMFLOAT3 position;
-		XMFLOAT2 texture;
+		TVector3 position;
+		TVector2 texture;
+
+		/*XMFLOAT3 position;
+		XMFLOAT2 texture;*/
 	};
 
 public:

@@ -3,7 +3,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 #include "modelclass.h"
 
-
 ModelClass::ModelClass()
 {
 	m_vertexBuffer = 0;
@@ -107,37 +106,46 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-	// Load the vertex array with data.
-	vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);  // Bottom left.
-	vertices[0].texture = XMFLOAT2(0.0f, 1.0f);
+	vertices[0].position = TVector3(-1.0f, -1.0f, 0.0f); 
+	vertices[0].texture = TVector2(0.0f, 1.0f);
 
-	vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);  // Top middle.
-	vertices[1].texture = XMFLOAT2(0.5f, 0.0f);
+	vertices[1].position = TVector3(0.0f, 1.0f, 0.0f);
+	vertices[1].texture = TVector2(0.5f, 0.0f);
 
-	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);  // Bottom right.
-	vertices[2].texture = XMFLOAT2(1.0f, 1.0f);
+	vertices[2].position = TVector3(1.0f, -1.0f, 0.0f);
+	vertices[2].texture = TVector2(1.0f, 1.0f);
 
-	vertices[3].position = XMFLOAT3(0.0f, 0.0f, -1.0f);  // Bottom right.
-	vertices[3].texture = XMFLOAT2(0.0f, 0.0f);
+	vertices[3].position = TVector3(0.0f, 0.0f, -1.0f);
+	vertices[3].texture = TVector2(0.0f, 0.0f);
 
-	// Load the index array with data.
-	indices[0] = 0;  // Bottom left.
-	indices[1] = 1;  // Top middle.
-	indices[2] = 2;  // Bottom right.
+	//vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);
+	//vertices[0].texture = XMFLOAT2(0.0f, 1.0f);
 
-	indices[3] = 2;  // Bottom left.
-	indices[4] = 1;  // Top middle.
-	indices[5] = 3;  // Bottom right.
+	//vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);
+	//vertices[1].texture = XMFLOAT2(0.5f, 0.0f);
 
-	indices[6] = 0;  // Bottom left.
-	indices[7] = 1;  // Top middle.
-	indices[8] = 3;  // Bottom right.
+	//vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);
+	//vertices[2].texture = XMFLOAT2(1.0f, 1.0f);
 
-	indices[9] = 0;  // Bottom left.
-	indices[10] = 2;  // Top middle.
-	indices[11] = 3;  // Bottom right.
+	//vertices[3].position = XMFLOAT3(0.0f, 0.0f, -1.0f);
+	//vertices[3].texture = XMFLOAT2(0.0f, 0.0f);
 
-	// Set up the description of the static vertex buffer.
+	indices[0] = 0; 
+	indices[1] = 1; 
+	indices[2] = 2;  
+
+	indices[3] = 2; 
+	indices[4] = 1; 
+	indices[5] = 3; 
+
+	indices[6] = 0; 
+	indices[7] = 1; 
+	indices[8] = 3; 
+
+	indices[9] = 0; 
+	indices[10] = 2;  
+	indices[11] = 3;  
+
     vertexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
     vertexBufferDesc.ByteWidth = sizeof(VertexType) * m_vertexCount;
     vertexBufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
@@ -145,19 +153,16 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
     vertexBufferDesc.MiscFlags = 0;
 	vertexBufferDesc.StructureByteStride = 0;
 
-	// Give the subresource structure a pointer to the vertex data.
     vertexData.pSysMem = vertices;
 	vertexData.SysMemPitch = 0;
 	vertexData.SysMemSlicePitch = 0;
 
-	// Now create the vertex buffer.
     result = device->CreateBuffer(&vertexBufferDesc, &vertexData, &m_vertexBuffer);
 	if(FAILED(result))
 	{
 		return false;
 	}
 
-	// Set up the description of the static index buffer.
     indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
     indexBufferDesc.ByteWidth = sizeof(unsigned long) * m_indexCount;
     indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
@@ -165,19 +170,16 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
     indexBufferDesc.MiscFlags = 0;
 	indexBufferDesc.StructureByteStride = 0;
 
-	// Give the subresource structure a pointer to the index data.
     indexData.pSysMem = indices;
 	indexData.SysMemPitch = 0;
 	indexData.SysMemSlicePitch = 0;
 
-	// Create the index buffer.
 	result = device->CreateBuffer(&indexBufferDesc, &indexData, &m_indexBuffer);
 	if(FAILED(result))
 	{
 		return false;
 	}
 
-	// Release the arrays now that the vertex and index buffers have been created and loaded.
 	delete [] vertices;
 	vertices = 0;
 
