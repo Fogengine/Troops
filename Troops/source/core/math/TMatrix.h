@@ -1,12 +1,16 @@
 #pragma once
 
-struct alignas(16) TMatrix
+struct TMatrix
 {
 public:
 	TMatrix();
+	
+	TMatrix operator + (TMatrix&);
+	TMatrix operator - (TMatrix&);
+	TMatrix operator * (TMatrix&);
 
-	float x1, y1, z1, w1;
-	float x2, y2, z2, w2;
-	float x3, y3, z3, w3;
-	float x4, y4, z4, w4;
+	static TMatrix IndentityMatrix();
+private:
+
+	float mData[4][4];
 };

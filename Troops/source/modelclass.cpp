@@ -238,14 +238,12 @@ bool ModelClass::LoadTexture(ID3D11Device* device, ID3D11DeviceContext* deviceCo
 	bool result;
 
 
-	// Create the texture object.
 	m_Texture = new TextureClass;
 	if (!m_Texture)
 	{
 		return false;
 	}
 
-	// Initialize the texture object.
 	result = m_Texture->Initialize(device, deviceContext, filename);
 	if (!result)
 	{
@@ -258,7 +256,6 @@ bool ModelClass::LoadTexture(ID3D11Device* device, ID3D11DeviceContext* deviceCo
 
 void ModelClass::ReleaseTexture()
 {
-	// Release the texture object.
 	if (m_Texture)
 	{
 		m_Texture->Shutdown();
