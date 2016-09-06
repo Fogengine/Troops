@@ -2,6 +2,7 @@
 // Filename: textureshaderclass.cpp
 ////////////////////////////////////////////////////////////////////////////////
 #include "textureshaderclass.h"
+#include "core\math\TMatrix.h"
 
 
 TextureShaderClass::TextureShaderClass()
@@ -317,7 +318,7 @@ bool TextureShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 	dataPtr = (MatrixBufferType*)mappedResource.pData;
 
 	// Copy the matrices into the constant buffer.
-	dataPtr->world = worldMatrix;
+	dataPtr->world = TMatrix::IndentityMatrix();
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
 

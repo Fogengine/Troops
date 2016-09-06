@@ -1,6 +1,6 @@
 #pragma once
 
-struct TMatrix
+struct alignas(16) TMatrix
 {
 public:
 	TMatrix();
@@ -8,6 +8,8 @@ public:
 	TMatrix operator + (TMatrix&);
 	TMatrix operator - (TMatrix&);
 	TMatrix operator * (TMatrix&);
+
+	void SetElement(const int, const int, const float);
 
 	static TMatrix IndentityMatrix();
 private:

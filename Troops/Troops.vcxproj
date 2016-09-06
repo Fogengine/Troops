@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="source\cameraclass.cpp" />
     <ClCompile Include="source\core\math\TMatrix.cpp" />
+    <ClCompile Include="source\core\math\TTransform.cpp" />
     <ClCompile Include="source\core\math\TVector2.cpp" />
     <ClCompile Include="source\core\math\TVector3.cpp" />
     <ClCompile Include="source\d3dclass.cpp" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="source\cameraclass.h" />
     <ClInclude Include="source\core\math\TMatrix.h" />
+    <ClInclude Include="source\core\math\TTransform.h" />
     <ClInclude Include="source\core\math\TVector2.h" />
     <ClInclude Include="source\core\math\TVector3.h" />
     <ClInclude Include="source\d3dclass.h" />

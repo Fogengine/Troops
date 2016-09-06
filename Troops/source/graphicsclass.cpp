@@ -2,6 +2,7 @@
 // Filename: graphicsclass.cpp
 ////////////////////////////////////////////////////////////////////////////////
 #include "graphicsclass.h"
+#include "core/math/TMatrix.h"
 
 
 GraphicsClass::GraphicsClass()
@@ -128,6 +129,11 @@ bool GraphicsClass::Frame()
 {
 	bool result;
 
+	TMatrix mat1 = TMatrix::IndentityMatrix();
+	TMatrix mat2 = TMatrix::IndentityMatrix();
+
+	mat1.SetElement(2, 3, 20);
+	mat1 = mat1*mat2;
 
 	// Render the graphics scene.
 	result = Render();
@@ -146,13 +152,10 @@ bool GraphicsClass::Render()
 	bool result;
 	static float xRotate = 0;
 
-	// Clear the buffers to begin the scene.
 	m_Direct3D->BeginScene(0.0f, 0.0f, 0.0f, 1.0f);
 
-	// Generate the view matrix based on the camera's position.
 	m_Camera->Render();
 
-	// Get the world, view, and projection matrices from the camera and d3d objects.
 	m_Direct3D->GetWorldMatrix(worldMatrix);
 	m_Camera->GetViewMatrix(viewMatrix);
 	m_Direct3D->GetProjectionMatrix(projectionMatrix);
@@ -161,17 +164,14 @@ bool GraphicsClass::Render()
 	worldMatrix *= XMMatrixRotationX(xRotate);
 	xRotate += 0.01f;
 
-	// Put the model vertex and index buffers on the graphics pipeline to prepare them for drawing.
 	m_Model->Render(m_Direct3D->GetDeviceContext());
 
-	// Render the model using the texture shader.
 	result = m_TextureShader->Render(m_Direct3D->GetDeviceContext(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTexture());
 	if (!result)
 	{
 		return false;
 	}
 
-	// Present the rendered scene to the screen.
 	m_Direct3D->EndScene();
 
 	return true;

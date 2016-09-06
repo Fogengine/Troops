@@ -45,6 +45,9 @@
     <ClCompile Include="source\core\math\TVector2.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="source\core\math\TTransform.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\cameraclass.h">
@@ -78,6 +81,9 @@
       <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="source\core\math\TVector2.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\core\math\TTransform.h">
       <Filter>Math</Filter>
     </ClInclude>
   </ItemGroup>

@@ -18,6 +18,7 @@ TMatrix TMatrix::operator+(TMatrix& InM)
 	}
 	return matrix;
 }
+
 TMatrix TMatrix::operator-(TMatrix& InM)
 {
 	TMatrix matrix;
@@ -30,17 +31,29 @@ TMatrix TMatrix::operator-(TMatrix& InM)
 	}
 	return matrix;
 }
+
 TMatrix TMatrix::operator*(TMatrix& InM)
 {
 	TMatrix matrix;
 	for (int i = 0;i < 4;i++)
 	{
-		for (int j = 0;j < 4;j++)
+		for (int k = 0;k < 4;k++)
 		{
-			matrix.mData[i][j] = mData[i][j] * InM.mData[j][i];
+			for (int j = 0;j < 4;j++)
+			{
+				matrix.mData[i][k] += mData[i][j] * InM.mData[j][k];
+			}
 		}
 	}
 	return matrix;
+}
+
+void TMatrix::SetElement(const int row, const int column, const float data)
+{
+	if (row >= 0 && row <= 3 && column >= 0 && column <= 3)
+	{
+		mData[row][column] = data;
+	}
 }
 
 TMatrix TMatrix::IndentityMatrix()

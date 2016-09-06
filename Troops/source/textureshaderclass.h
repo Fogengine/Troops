@@ -12,6 +12,7 @@
 #include <d3dcompiler.h>
 #include <directxmath.h>
 #include <fstream>
+#include "core\math\TMatrix.h"
 using namespace DirectX;
 using namespace std;
 
@@ -24,7 +25,7 @@ class TextureShaderClass
 private:
 	struct MatrixBufferType
 	{
-		XMMATRIX world;
+		TMatrix world;
 		XMMATRIX view;
 		XMMATRIX projection;
 	};
