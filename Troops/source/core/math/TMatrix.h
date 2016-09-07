@@ -8,6 +8,9 @@ public:
 	TMatrix operator + (TMatrix&);
 	TMatrix operator - (TMatrix&);
 	TMatrix operator * (TMatrix&);
+	TMatrix operator * (float);
+	float* const operator[](const int);
+	TMatrix Inverse();
 
 	void SetElement(const int, const int, const float);
 

@@ -132,7 +132,7 @@ bool GraphicsClass::Frame()
 	TMatrix mat1 = TMatrix::IndentityMatrix();
 	TMatrix mat2 = TMatrix::IndentityMatrix();
 
-	mat1.SetElement(2, 3, 20);
+	mat1[2][3] = 5;
 	mat1 = mat1*mat2;
 
 	// Render the graphics scene.

@@ -321,7 +321,6 @@ bool TextureShaderClass::SetShaderParameters(ID3D11DeviceContext* deviceContext,
 	dataPtr->world = TMatrix::IndentityMatrix();
 	dataPtr->view = viewMatrix;
 	dataPtr->projection = projectionMatrix;
-
 	// Unlock the constant buffer.
     deviceContext->Unmap(m_matrixBuffer, 0);
 
